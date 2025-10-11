@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the **CaledonCode Website**! This repository is dedicated to building a dynamic, team-based React website using Vite, TypeScript, and Tailwind CSS. The project emphasises structured collaboration, where multiple teams work on predefined tasks focused on key areas: Home Page, Services Page, Contact Page, and Growth Focused Tiers (e.g., pricing or feature tiers). We adhere to a fixed file structure and core libraries while allowing additions via `npm install` (without committing `node_modules`).
+Welcome to the **CaledonCode Website**! This repository is dedicated to building a dynamic, team-based React website using Vite, TypeScript, and Tailwind CSS. The project emphasises structured collaboration, where multiple teams work on predefined tasks focused on key areas: Home Page, Services Page, Contact Page, and Growth Focused Tiers (e.g., pricing or feature tiers). We adhere to the current file structure and core libraries while allowing additions via `npm install` (without committing `node_modules`).
 
 **Key Principles:**
 - **Fixed Structure:** Do not alter the existing file structure or core libraries (Vite, React, TypeScript, Tailwind).
@@ -31,8 +31,8 @@ Welcome to the **CaledonCode Website**! This repository is dedicated to building
 ### Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/[your-org]/caledoncode-website.git
-   cd caledoncode-website
+   git clone https://github.com/La-Flame1/CaledonCode-Website.git
+   cd CaledonCode-Website
    ```
 2. Install dependencies:
    ```
@@ -58,52 +58,80 @@ This generates an optimised build in the `dist/` folder.
 - Type check: `npm run type-check`
 
 ## Project Structure
-Adhere strictly to this structure. Do not rename, move, or delete files/folders without unanimous team approval. Team-specific work goes into designated subfolders (e.g., `pages/home/` for Team Home).
+This reflects the current structure. Teams should expand it by adding subfolders and files in their designated areas (see "Team Tasks and Workflow" below). Do not rename, move, or delete existing files/folders without unanimous team approval.
 
 ```
-caledoncode-website/
-├── public/                 # Static assets (e.g., index.html, favicon)
+CaledonCode-Website/
+├── dist/                   # Build output (git-ignored; auto-generated on npm run build)
+├── public/                 # Static assets
+│   ├── index.html          # Vite entry HTML
+│   ├── favicon.svg         # Favicon
+│   └── robots.txt          # SEO robots file
 ├── src/                    # Source code
-│   ├── components/         # Reusable React components
-│   │   ├── common/         # Shared components (e.g., Button.tsx, Header.tsx)
-│   │   ├── tiers/          # Growth Focused Tiers components (Team Growth: e.g., PricingTier.tsx)
-│   │   └── ...             # Team-specific if needed
-│   ├── pages/              # Page-level components
-│   │   ├── home/           # Home Page (Team Home: e.g., Hero.tsx, Features.tsx)
-│   │   ├── services/       # Services Page (Team Services: e.g., ServiceCard.tsx)
-│   │   ├── contact/        # Contact Page (Team Contact: e.g., ContactForm.tsx)
-│   │   └── ...             # Additional pages
-│   ├── services/           # API calls and utilities (shared or team-specific)
-│   ├── styles/             # Global CSS/Tailwind utilities (e.g., globals.css)
-│   ├── utils/              # Helper functions (e.g., api.ts, hooks/)
+│   ├── components/         # Reusable React components (current: contact-focused; expand with subfolders)
+│   │   ├── forms.tsx       # Shared form utilities
+│   │   ├── ContactHero.tsx # Contact page hero component
+│   │   ├── InquiryForm.tsx # Inquiry form component
+│   │   └── useToast.tsx    # Toast notification hook
+│   ├── pages/              # Page-level components (current: basic index; add subfolders for teams)
+│   │   └── Index.tsx       # Main index page (starter; evolve into home or router entry)
 │   ├── App.tsx             # Root component (with routing)
 │   ├── main.tsx            # Entry point
-│   └── globals.css         # Global styles (Tailwind imports)
-├── dist/                   # Build output (git-ignored)
+│   ├── index.css           # Global styles (Tailwind imports)
+│   └── vite-env.d.ts       # Vite TypeScript declarations
 ├── .gitignore              # Ignores node_modules, dist/, etc.
-├── .eslintrc.js            # ESLint configuration
-├── index.html              # Vite entry HTML
+├── components.json         # VS Code component snippets (if used)
+├── eslintrc.js             # ESLint configuration
+├── package-lock.json       # Locked dependencies
 ├── package.json            # Dependencies and scripts
 ├── postcss.config.js       # PostCSS config for Tailwind
 ├── README.md               # This file
-├── tailwind.config.ts      # Tailwind configuration
+├── tailwind.config.js      # Tailwind configuration (note: .js extension; update to .ts if needed)
 ├── tsconfig.app.json       # TypeScript config for app
 ├── tsconfig.json           # Base TypeScript config
 ├── tsconfig.node.json      # TypeScript config for Node
-├── vite.config.ts          # Vite configuration
-└── ...                     # Other config files (e.g., .env.example)
+└── vite.config.ts          # Vite configuration
 ```
 
-- **Team Folders:** Use subfolders like `pages/home/` for Team Home's work. For Growth Tiers, use `components/tiers/`.
+- **Current Focus:** Components are contact-oriented (e.g., forms, toasts), and pages has a basic Index.tsx. This is the starter scaffold—teams will add depth.
 - **Libraries:** Core libraries (e.g., React, Vite, Tailwind) are pre-installed. Additions go in `package.json` but keep `node_modules` local.
-- **TypeScript:** All new files should be `.tsx` (components) or `.ts` (utils/services).
+- **TypeScript:** All new files should be `.tsx` (components) or `.ts` (utils/services). Use path aliases from `tsconfig.json` (e.g., `@/components`).
 
 ## Team Tasks and Workflow
-Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Examples:
-- **Team Home:** Home Page in `src/pages/home/` (e.g., hero section, testimonials).
-- **Team Services:** Services Page in `src/pages/services/` (e.g., service listings, integrations).
-- **Team Contact:** Contact Page in `src/pages/contact/` (e.g., form handling, map integration).
-- **Team Growth:** Growth Focused Tiers in `src/components/tiers/` (e.g., pricing cards, upgrade modals).
+Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Build on the current structure by creating subfolders in `src/pages/` or `src/components/` for your focus area. Examples of how to add work:
+
+- **Team 1: Home Page** (Maduvha Muluadzi, Ntsika Mpiko)
+  - **Where to Add:** Create `src/pages/home/` folder. Add components like `Hero.tsx` (main title/subtitle), `Slider.tsx` (dynamic values), `ExpertiseSection.tsx` (UI/UX, Web Dev, Branding), and `Testimonials.tsx` (client feedback).
+  - **Integration:** Update `src/pages/Index.tsx` or `App.tsx` to route to `/home` (install React Router if needed: `npm install react-router-dom`).
+  - **Example File:** `src/pages/home/Hero.tsx` with Tailwind classes for responsive layout and "Contact Us" button.
+  - **Workflow:** Branch: `git checkout -b feature/team-home-hero`. Commit only home-related changes.
+
+- **Team 2: Services Page** (Kagiso Jiyane, Ndumiso Nkomo, Idris Adigun)
+  - **Where to Add:** Create `src/pages/services/` folder. Add sections like `UserCentricDesign.tsx`, `WebDevelopment.tsx`, `BrandIdentity.tsx`, `DigitalInsights.tsx`, and `WorkplaceSolutions.tsx` (each with sub-descriptions and CTAs).
+  - **Integration:** Link from navigation in `App.tsx`. Reuse `components/forms.tsx` for any interactive elements.
+  - **Example File:** `src/pages/services/ServiceCard.tsx` as a reusable component for each core section.
+  - **Workflow:** Branch: `git checkout -b feature/team-services-cards`. Test responsiveness in mobile view.
+
+- **Team 3: Growth-Focused Tiers** (Donnel Oageng, Tokelo Mphonyo, Tshimologo Nhcoe)
+  - **Where to Add:** Create `src/components/tiers/` subfolder under `components/`. Add `StartupTier.tsx`, `ElevateTier.tsx`, `ExcelTier.tsx` (each with descriptions, benefits, and "Learn More" buttons).
+  - **Integration:** Import into a parent `TiersSection.tsx` in `src/pages/` (e.g., add to services or a dedicated tiers page). Ensure scalability with props for customization.
+  - **Example File:** `src/components/tiers/PricingTier.tsx` using Tailwind grid for responsive cards.
+  - **Workflow:** Branch: `git checkout -b feature/team-tiers-startup`. Coordinate with Team 2 if tiers link to services.
+
+- **Team 4: Contact Page** (Ntsako Maluleke, Luyanda Ndlovu)
+  - **Where to Add:** Expand on existing `components/` (e.g., enhance `ContactHero.tsx`, `InquiryForm.tsx`). Create `src/pages/contact/` for full page assembly, including divided forms (left/right), submit button, and contact info stack.
+  - **Integration:** Add inquiry section with `Name/Email/Message` fields. Reuse `useToast.tsx` for form success/error notifications.
+  - **Example File:** `src/pages/contact/ContactLayout.tsx` combining hero, forms, and info.
+  - **Workflow:** Branch: `git checkout -b feature/team-contact-forms`. Since some contact components exist, pull latest before starting.
+
+**General Workflow for All Teams:**
+1. Pull latest: `git pull origin main`.
+2. Create branch: `git checkout -b feature/[team-name]-[task]`.
+3. Add files in your area (use `.tsx` for components, Tailwind for styling).
+4. Test locally: `npm run dev` and check `http://localhost:5173`.
+5. Commit: `git add . && git commit -m "[TeamName] Add [specific feature]"`.
+6. Push and PR: `git push origin feature/[branch]` → Create PR to `main` with team reviewers.
+7. Run checks: Ensure `npm run type-check` and `npm run lint` pass before merging.
 
 ### Commit Guidelines
 - **Branching:** Work on feature branches: `git checkout -b feature/team-home-hero-update`.
@@ -142,8 +170,8 @@ Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared vi
 ## Troubleshooting
 - **Dependency Issues:** Delete `node_modules` and `package-lock.json`, then `npm install`.
 - **Port Conflicts:** Edit `vite.config.ts` for custom port.
-- **TypeScript Errors:** Run `npm run type-check` and fix imports.
-- **Tailwind Issues:** Ensure `globals.css` imports `@tailwind` directives; rebuild Tailwind via `npm run build-css` if configured.
+- **TypeScript Errors:** Run `npm run type-check` and fix imports (use `@/src/components` paths).
+- **Tailwind Issues:** Ensure `index.css` imports `@tailwind` directives; rebuild Tailwind via `npm run build-css` if configured.
 - **Merge Conflicts:** Resolve locally and communicate with affected teams.
 
 ## Contributing
