@@ -98,7 +98,7 @@ CaledonCode-Website/
 - **TypeScript:** All new files should be `.tsx` (components) or `.ts` (utils/services). Use path aliases from `tsconfig.json` (e.g., `@/components`).
 
 ## Team Tasks and Workflow
-Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Build on the current structure by creating subfolders in `src/pages/` or `src/components/` for your focus area. Examples of how to add work:
+Teams are assigned specific tasks (detailed in [TASKS.md](Tasks.md) or shared via project board). Build on the current structure by creating subfolders in `src/pages/` or `src/components/` for your focus area. Examples of how to add work:
 
 - **Team 1: Home Page** (Maduvha Muluadzi, Ntsika Mpiko)
   - **Where to Add:** Create `src/pages/home/` folder. Add components like `Hero.tsx` (main title/subtitle), `Slider.tsx` (dynamic values), `ExpertiseSection.tsx` (UI/UX, Web Dev, Branding), and `Testimonials.tsx` (client feedback).
