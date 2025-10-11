@@ -98,17 +98,11 @@ CaledonCode-Website/
 - **TypeScript:** All new files should be `.tsx` (components) or `.ts` (utils/services). Use path aliases from `tsconfig.json` (e.g., `@/components`).
 
 ## Team Tasks and Workflow
-Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Build on the current structure by creating subfolders in `src/pages/` or `src/components/` for your focus area. Examples of how to add work:
-
-
-**General Workflow for All Teams:**
-1. Pull latest: `git pull origin main`.
-2. Create branch: `git checkout -b feature/[team-name]-[task]`.
-3. Add files in your area (use `.tsx` for components, Tailwind for styling).
-4. Test locally: `npm run dev` and check `http://localhost:5173`.
-5. Commit: `git add . && git commit -m "[TeamName] Add [specific feature]"`.
-6. Push and PR: `git push origin feature/[branch]` → Create PR to `main` with team reviewers.
-7. Run checks: Ensure `npm run type-check` and `npm run lint` pass before merging.
+Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Examples:
+- **Team Home:** Home Page in `src/pages/home/` (e.g., hero section, testimonials).
+- **Team Services:** Services Page in `src/pages/services/` (e.g., service listings, integrations).
+- **Team Contact:** Contact Page in `src/pages/contact/` (e.g., form handling, map integration).
+- **Team Growth:** Growth Focused Tiers in `src/components/tiers/` (e.g., pricing cards, upgrade modals).
 
 ### Commit Guidelines
 - **Branching:** Work on feature branches: `git checkout -b feature/team-home-hero-update`.
