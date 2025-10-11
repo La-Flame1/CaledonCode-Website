@@ -98,7 +98,7 @@ CaledonCode-Website/
 - **TypeScript:** All new files should be `.tsx` (components) or `.ts` (utils/services). Use path aliases from `tsconfig.json` (e.g., `@/components`).
 
 ## Team Tasks and Workflow
-Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared via project board). Examples:
+Teams are assigned specific tasks (detailed in [Tasks.md](Tasks.md) or shared via project board). Examples:
 - **Team Home:** Home Page in `src/pages/home/` (e.g., hero section, testimonials).
 - **Team Services:** Services Page in `src/pages/services/` (e.g., service listings, integrations).
 - **Team Contact:** Contact Page in `src/pages/contact/` (e.g., form handling, map integration).
