@@ -1,55 +1,109 @@
-# 🧭 Caledon Code ICE Task – Group 4: Contact Page
+# Caledon Code Website Prototype
 
-## 📘 Project Overview
+## Project Overview
+**Objective:** To collaboratively design and develop the Caledon Code website prototype through four structured teams.
 
-This document outlines the **Contact Page** design and implementation plan for the **Caledon Code Website Prototype**, developed under the **ICE Talent Development Initiative (2025)**.  
-The Caledon Code website serves as a **digital hub for innovation**, combining creativity, technology, and user-centered design to empower brands and individuals.
+**Duration:** 2 Weeks (Excluding Weekends)  
+**Supervisor:** Khutso – ensuring all developers remain aligned with scope and progress.
 
-Our group, **Group 4**, is responsible for creating the **Contact Page**, ensuring it is professional, functional, and aligned with the overall branding of Caledon Code.
+This repository contains the code for the Caledon Code website, a sleek, modern digital hub blending creativity and technology to empower brands. The project is divided into focused teams for key pages and features.
 
----
+## Team Allocations
 
-## 👥 Team Members
+| Team | Focus Area          | Members                          |
+|------|---------------------|----------------------------------|
+| 1    | Home Page           | Maduvha Muluadzi, Ntsika Mpiko   |
+| 2    | Services Page       | Kagiso Jiyane, Ndumiso Nkomo, Idris Adigun |
+| 3    | Growth-Focused Tiers| Donnel Oageng, Tokelo Mphonyo, Tshimologo Nhcoe |
+| 4    | Contact Page        | Ntsako Maluleke, Luyanda Ndlovu  |
 
-- **Luyanda Ndlovu**  
-- **Ntsako Maluleke**
+## Page Specifications
 
-**Supervisor:** Khutso  
-**Duration:** 2 Weeks (excluding weekends)
+### Home Page
+**Main Title:** A HUB FOR INNOVATION  
+**Subtitle:** Empower your digital presence with Caledon Code.
 
----
+The home page serves as the brand's digital front—sleek, modern, and user-friendly. It introduces Caledon Code’s vision: blending creativity and technology to empower brands.
 
-## 🧩 Group 4 Task Summary – Contact Page
+**Key Elements:**
+- “Contact Us” button positioned prominently below the intro.
+- Dynamic slider showcasing three key values:
+  - **Community-Driven Innovation:** Collaboration-focused projects with “Learn More” button.
+  - **Sleek & User-Friendly Designs:** Aesthetic, functional layouts with “Explore Designs” button.
+  - **Tailored Digital Solutions:** Custom services overview with “See Our Work” button.
 
-### **Main Heading**
-> Stay Connected with Us
+**Expertise Section:**
+- **UI/UX Design:** Intuitive and elegant design approach.
+- **Web Development:** Scalable, responsive websites.
+- **Brand Identity Design:** Unique and impactful branding assets.
 
-### **Subtext**
-> Whether joining our community, reaching out to our team, or inquiring about services.
+**Client Feedback Section:** Real testimonials emphasizing professionalism, creativity, and satisfaction.
 
-### **Page Layout & Structure**
+### Services Page
+The Services page highlights Caledon Code’s primary capabilities and expertise areas, structured to emphasize clarity and trust.
 
-#### 1. Contact Form Section (Two Columns)
-- **Left Side:**
-  - First Name  
-  - Last Name  
-  - Email  
+**Core Sections:**
+- **User-Centric Design:** Focused on intuitive, research-driven interfaces and responsive layouts.
+- **Robust Web Development:** Performance optimization, custom builds, and e-commerce solutions.
+- **Distinctive Brand Identity:** Logo design, full branding kits, and dynamic animations.
+- **Strategic Digital Insights:** Growth consultations, market analysis, and tech implementation support.
+- **Efficient Workplace Solutions:** Collaboration tools setup and ongoing support.
 
-- **Right Side:**
-  - Business Name  
-  - Organization Capacity  
-  - Email  
+Each section must include sub-descriptions, clear CTAs (buttons), and consistent tone.
 
-A **Submit Button** should be placed clearly below both columns or centered for balance.
+### Growth-Focused Tiers
+This section presents Caledon Code’s three-tier digital solution packages, designed for scalability and brand evolution.
 
-#### 2. Inquiry Section
-Below the main form, include a secondary form for general messages:
-- Name  
-- Email  
-- Message  
-- Submit Button  
+- **Startup:** For emerging businesses—includes website, brand kit, and basic SEO.  
+  *Target Users & Benefits:* Ideal for startups needing a strong foundation. "Learn More" button.
+  
+- **Elevate:** Intermediate option—interactive design, dynamic banners, and enhanced content depth.  
+  *Target Users & Benefits:* Suited for growing brands seeking engagement. "Learn More" button.
+  
+- **Excel:** Premium tier—advanced SEO integration, full interactivity, and ongoing support.  
+  *Target Users & Benefits:* For established companies aiming for excellence. "Learn More" button.
 
-This section should feel simple and inviting, encouraging visitors to reach out.
+Each tier includes a short paragraph describing target users and benefits.
 
-#### 3. Contact Information Section
-Displayed below all forms:
+### Contact Page
+**Main Heading:** Stay Connected with Us  
+**Subtext:** Whether joining our community, reaching out to our team, or inquiring about services.
+
+The layout features two divided forms:
+- **Left:** First Name, Last Name, Email.
+- **Right:** Business Name, Organization Capacity, Email.
+
+Below: Submit button and stacked contact info (Address, Operating Hours, Phone, Email).
+
+**Inquiry Section:** Fields for Name, Email, Message, and Submit button.
+
+## Development Setup
+1. Clone the repository:  
+   ```
+   git clone https://github.com/La-Flame1/CaledonCode-Website.git
+   ```
+2. Navigate to the project directory:  
+   ```
+   cd CaledonCode-Website
+   ```
+3. Install dependencies (assuming Vite + React setup):  
+   ```
+   npm install
+   ```
+4. Run the development server:  
+   ```
+   npm run dev
+   ```
+5. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Contributing
+- Follow the team allocations and specifications above.
+- Use feature branches: `git checkout -b feature/[team-focus]`.
+- Commit with clear messages: `git commit -m "Update [page/section]: [description]"`.
+- Push changes: `git push origin feature/[team-focus]`.
+- Submit pull requests for review.
+
+For questions, reach out to the supervisor or team leads.
+
+## License
+This project is open-source and available under the MIT License. See [LICENSE](LICENSE) for details.
