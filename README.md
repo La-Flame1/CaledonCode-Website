@@ -137,7 +137,7 @@ Teams are assigned specific tasks (detailed in [TASKS.md](TASKS.md) or shared vi
 
 ## Deployment
 - Use GitHub Pages, Vercel, or Netlify for previews (Vite supports easy deployment).
-- Production deploys on merge to `main` (automated via [CI/CD pipeline](https://github.com/[your-org]/caledoncode-website/actions)).
+- Production deploys on merge to `main`.
 
 ## Troubleshooting
 - **Dependency Issues:** Delete `node_modules` and `package-lock.json`, then `npm install`.
