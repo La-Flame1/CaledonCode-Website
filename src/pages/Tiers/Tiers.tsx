@@ -45,6 +45,14 @@ const tiers = [
   },
 ];
 
+const comparisonFeatures = [
+  { feature: "Website Pages", startup: "Up to 5", elevate: "Up to 10", excel: "Unlimited" },
+  { feature: "SEO Optimization", startup: "Basic", elevate: "Enhanced", excel: "Advanced" },
+  { feature: "Support Response", startup: "48 hours", elevate: "24 hours", excel: "Priority (12h)" },
+  { feature: "Monthly Updates", startup: "1 update", elevate: "2 updates", excel: "Unlimited" },
+  { feature: "Custom Features", startup: "✗", elevate: "Limited", excel: "✓" },
+];
+
 const Tiers: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -76,7 +84,7 @@ const Tiers: React.FC = () => {
           Growth-Focused Tiers
         </h1>
         <p className="text-lg text-black-100 max-w-2xl mx-auto">
-          Explore Caledon Code’s three-tier digital solutions, designed for
+          Explore Caledon Code's three-tier digital solutions, designed for
           scalability and brand evolution.
         </p>
       </section>
@@ -89,7 +97,7 @@ const Tiers: React.FC = () => {
               Our Packages
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each package includes a “Learn More” button and details describing target users and benefits.
+              Each package includes a "Learn More" button and details describing target users and benefits.
             </p>
           </div>
 
@@ -127,6 +135,46 @@ const Tiers: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COMPARISON TABLE ===== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 animate-fade-in">
+              Compare Our Tiers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              See what's included in each package at a glance
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white rounded-lg shadow-md overflow-hidden">
+              <thead className="bg-[#3774B6] text-white">
+                <tr>
+                  <th className="py-4 px-6 text-left font-semibold">Feature</th>
+                  <th className="py-4 px-6 text-center font-semibold">Startup</th>
+                  <th className="py-4 px-6 text-center font-semibold">Elevate</th>
+                  <th className="py-4 px-6 text-center font-semibold">Excel</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonFeatures.map((row, index) => (
+                  <tr 
+                    key={index} 
+                    className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="py-4 px-6 font-medium text-gray-900">{row.feature}</td>
+                    <td className="py-4 px-6 text-center text-gray-700">{row.startup}</td>
+                    <td className="py-4 px-6 text-center text-gray-700">{row.elevate}</td>
+                    <td className="py-4 px-6 text-center text-gray-700">{row.excel}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
