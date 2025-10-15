@@ -1,8 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 
+const links = [
+  { name: "Home", to: "/" },
+  { name: "Tiers", to: "/tiers" },
+  { name: "Services", to: "/services" },
+];
+
 const Header = () => {
   const location = useLocation();
-  const isTiersPage = location.pathname === "/tiers";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -15,7 +20,9 @@ const Header = () => {
               <span className="text-primary">&gt;</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight">CaledonCode</span>
+              <span className="text-xl font-bold tracking-tight">
+                CaledonCode
+              </span>
               {/* Tagline directly under logo */}
               <p className="text-xs text-muted-foreground mt-0.5">
                 Web. Code. Design. Deliver.
@@ -26,23 +33,18 @@ const Header = () => {
 
         {/* Navigation Links */}
         <nav className="flex items-center gap-6 mt-3 sm:mt-0 text-sm font-medium">
-          <Link
-            to="/"
-            className={`transition-colors hover:text-primary ${
-              location.pathname === "/" ? "text-primary" : "text-foreground"
-            }`}
-          >
-            Home
-          </Link>
-
-          <Link
-            to="/tiers"
-            className={`transition-colors hover:text-primary ${
-              isTiersPage ? "text-primary" : "text-foreground"
-            }`}
-          >
-            Tiers
-          </Link>
+          {links.map((link) => (
+            <Link
+              to={link.to}
+              className={`transition-colors hover:text-primary ${
+                location.pathname === link.to
+                  ? "text-primary"
+                  : "text-foreground"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>

@@ -1,6 +1,8 @@
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -12,12 +14,23 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
 
 const inquirySchema = z.object({
-  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
-  email: z.string().trim().email("Please enter a valid email address").max(100, "Email must be less than 100 characters"),
-  message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters"),
+  name: z
+    .string()
+    .trim()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  email: z
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters"),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Message must be at least 10 characters")
+    .max(1000, "Message must be less than 1000 characters"),
 });
 
 type InquiryFormValues = z.infer<typeof inquirySchema>;
@@ -53,7 +66,7 @@ const InquiryForm = () => {
           <div className="mt-6 w-24 h-1 mx-auto bg-gradient-to-r from-foreground via-primary to-foreground bg-[length:200%_100%] animate-gradient rounded-full" />
         </div>
 
-        <div className="bg-card rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 p-8 md:p-12 animate-in fade-in zoom-in duration-700 delay-300 hover:animate-glow">
+        <div className="bg-card rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 p-8 md:p-12 animate-in fade-in zoom-in delay-300 hover:animate-glow">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -63,7 +76,11 @@ const InquiryForm = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your full name" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                      <Input
+                        placeholder="Your full name"
+                        {...field}
+                        className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -77,7 +94,12 @@ const InquiryForm = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                      <Input
+                        type="email"
+                        placeholder="your.email@example.com"
+                        {...field}
+                        className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -91,7 +113,7 @@ const InquiryForm = () => {
                   <FormItem>
                     <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea 
+                      <Textarea
                         placeholder="Tell us about your inquiry..."
                         className="min-h-[150px] resize-none transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                         {...field}
@@ -103,8 +125,8 @@ const InquiryForm = () => {
               />
 
               <div className="flex justify-center pt-4">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   size="lg"
                   className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-[var(--shadow-button)] px-12 transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-glow"
                 >
