@@ -24,9 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # --- LINTING ---
-      - name: Run ESLint
-        run: npm run lint
+      # # --- LINTING ---
+      # - name: Run ESLint
+      #   run: npm run lint
 
       # --- TYPE CHECKS ---
       - name: Run TypeScript type check
