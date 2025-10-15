@@ -1,5 +1,5 @@
 import { ArrowRight, BarChart, Layers, Rocket } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import {
