@@ -1,7 +1,3 @@
-// src/pages/Tiers/Tiers.tsx
-import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import React from "react";
 import { TestimonialCarousel } from "@/components/tiers/TestimonialCarousel";
 
 // Inside your Tiers.tsx (replace the tiers array + mapping block)
@@ -46,40 +42,38 @@ const tiers = [
 ];
 
 const comparisonFeatures = [
-  { feature: "Website Pages", startup: "Up to 5", elevate: "Up to 10", excel: "Unlimited" },
-  { feature: "SEO Optimization", startup: "Basic", elevate: "Enhanced", excel: "Advanced" },
-  { feature: "Support Response", startup: "48 hours", elevate: "24 hours", excel: "Priority (12h)" },
-  { feature: "Monthly Updates", startup: "1 update", elevate: "2 updates", excel: "Unlimited" },
+  {
+    feature: "Website Pages",
+    startup: "Up to 5",
+    elevate: "Up to 10",
+    excel: "Unlimited",
+  },
+  {
+    feature: "SEO Optimization",
+    startup: "Basic",
+    elevate: "Enhanced",
+    excel: "Advanced",
+  },
+  {
+    feature: "Support Response",
+    startup: "48 hours",
+    elevate: "24 hours",
+    excel: "Priority (12h)",
+  },
+  {
+    feature: "Monthly Updates",
+    startup: "1 update",
+    elevate: "2 updates",
+    excel: "Unlimited",
+  },
   { feature: "Custom Features", startup: "✗", elevate: "Limited", excel: "✓" },
 ];
 
-const Tiers: React.FC = () => {
+const Tiers = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className="bg-white shadow-md z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link to="/" className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-                Caledon Code
-              </Link>
-            </div>
-            <div className="flex items-center space-x-8">
-              <Link
-                to="/tiers"
-                className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100"
-              >
-                Pricing Tiers
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <Header />
-
+    <div>
       {/* ===== HERO ===== */}
-      <section className="text-center py-20 bg-gradient-to-b from-[#E6E9EE] to-white">
+      <section className="text-center py-16 mt-20 px-4 bg-gradient-to-b from-[#E6E9EE] to-white">
         <h1 className="text-5xl font-bold mb-4 animate-fade-in">
           Growth-Focused Tiers
         </h1>
@@ -97,7 +91,8 @@ const Tiers: React.FC = () => {
               Our Packages
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each package includes a "Learn More" button and details describing target users and benefits.
+              Each package includes a "Learn More" button and details describing
+              target users and benefits.
             </p>
           </div>
 
@@ -156,21 +151,33 @@ const Tiers: React.FC = () => {
               <thead className="bg-[#3774B6] text-white">
                 <tr>
                   <th className="py-4 px-6 text-left font-semibold">Feature</th>
-                  <th className="py-4 px-6 text-center font-semibold">Startup</th>
-                  <th className="py-4 px-6 text-center font-semibold">Elevate</th>
+                  <th className="py-4 px-6 text-center font-semibold">
+                    Startup
+                  </th>
+                  <th className="py-4 px-6 text-center font-semibold">
+                    Elevate
+                  </th>
                   <th className="py-4 px-6 text-center font-semibold">Excel</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonFeatures.map((row, index) => (
-                  <tr 
-                    key={index} 
+                  <tr
+                    key={index}
                     className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
                   >
-                    <td className="py-4 px-6 font-medium text-gray-900">{row.feature}</td>
-                    <td className="py-4 px-6 text-center text-gray-700">{row.startup}</td>
-                    <td className="py-4 px-6 text-center text-gray-700">{row.elevate}</td>
-                    <td className="py-4 px-6 text-center text-gray-700">{row.excel}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900">
+                      {row.feature}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-700">
+                      {row.startup}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-700">
+                      {row.elevate}
+                    </td>
+                    <td className="py-4 px-6 text-center text-gray-700">
+                      {row.excel}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -180,7 +187,10 @@ const Tiers: React.FC = () => {
       </section>
 
       {/* ===== TESTIMONIAL SECTION ===== */}
-      <section id="testimonials" className="py-20 bg-gradient-to-b from-[#E6E9EE] to-white">
+      <section
+        id="testimonials"
+        className="py-20 bg-gradient-to-b from-[#E6E9EE] to-white"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4 animate-fade-in">
@@ -194,22 +204,6 @@ const Tiers: React.FC = () => {
           <TestimonialCarousel />
         </div>
       </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer className="py-8 bg-[#F5F1EB] text-center text-gray-600 text-sm border-t border-gray-200">
-        © {new Date().getFullYear()} CaledonCode. All rights reserved.
-      </footer>
-
-      {/* ===== ANIMATION ===== */}
-      <style>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-in-out both;
-        }
-      `}</style>
     </div>
   );
 };

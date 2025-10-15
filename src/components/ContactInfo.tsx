@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 const contactDetails = [
   {
@@ -9,7 +9,7 @@ const contactDetails = [
   {
     icon: Clock,
     label: "Operating Hours",
-    value: "Mon–Fri, 08:00–17:00",
+    value: "Mon - Fri, 08:00 - 17:00",
   },
   {
     icon: Phone,
@@ -43,7 +43,7 @@ const ContactInfo = () => {
             return (
               <div
                 key={index}
-                className="bg-card rounded-xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-2 hover:scale-105 group animate-in fade-in zoom-in duration-700"
+                className="bg-card rounded-xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-2 hover:scale-105 group animate-in fade-in zoom-in"
                 style={{ animationDelay: `${(index + 1) * 150}ms` }}
               >
                 <div className="flex flex-col items-center text-center space-y-4">

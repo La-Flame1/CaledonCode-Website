@@ -1,6 +1,8 @@
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -18,16 +20,45 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { toast } from "sonner";
 
 const contactSchema = z.object({
-  firstName: z.string().trim().min(2, "First name must be at least 2 characters").max(50, "First name must be less than 50 characters"),
-  lastName: z.string().trim().min(2, "Last name must be at least 2 characters").max(50, "Last name must be less than 50 characters"),
-  email: z.string().trim().email("Please enter a valid email address").max(100, "Email must be less than 100 characters"),
-  businessName: z.string().trim().min(2, "Business name must be at least 2 characters").max(100, "Business name must be less than 100 characters"),
-  organizationCapacity: z.string().min(1, "Please select your organization capacity"),
-  businessEmail: z.string().trim().email("Please enter a valid email address").max(100, "Email must be less than 100 characters"),
+  firstName: z
+    .string()
+    .trim()
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name must be less than 50 characters"),
+  lastName: z
+    .string()
+    .trim()
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name must be less than 50 characters"),
+  email: z
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters"),
+  businessName: z
+    .string()
+    .trim()
+    .min(2, "Business name must be at least 2 characters")
+    .max(100, "Business name must be less than 100 characters"),
+  organizationCapacity: z
+    .string()
+    .min(1, "Please select your organization capacity"),
+  businessEmail: z
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters"),
 });
+
+const capacityOptions = [
+  { value: "startup", label: "Startup" },
+  { value: "agency", label: "Agency" },
+  { value: "individual", label: "Individual" },
+  { value: "enterprise", label: "Enterprise" },
+  { value: "nonprofit", label: "Non-Profit" },
+]
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
@@ -53,7 +84,7 @@ const ContactForms = () => {
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-card rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 p-8 md:p-12 group hover:animate-glow animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+        <div className="bg-card rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 p-8 md:p-12 group hover:animate-glow animate-in fade-in slide-in-from-bottom-4 delay-300">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
@@ -63,7 +94,7 @@ const ContactForms = () => {
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     Personal Information
                   </h3>
-                  
+
                   <FormField
                     control={form.control}
                     name="firstName"
@@ -71,7 +102,11 @@ const ContactForms = () => {
                       <FormItem>
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                          <Input
+                            placeholder="John"
+                            {...field}
+                            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -85,7 +120,11 @@ const ContactForms = () => {
                       <FormItem>
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Doe" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                          <Input
+                            placeholder="Doe"
+                            {...field}
+                            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -99,7 +138,12 @@ const ContactForms = () => {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="john.doe@example.com" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                          <Input
+                            type="email"
+                            placeholder="john.doe@example.com"
+                            {...field}
+                            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -113,7 +157,7 @@ const ContactForms = () => {
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     Business Information
                   </h3>
-                  
+
                   <FormField
                     control={form.control}
                     name="businessName"
@@ -121,7 +165,11 @@ const ContactForms = () => {
                       <FormItem>
                         <FormLabel>Business Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your Company" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                          <Input
+                            placeholder="Your Company"
+                            {...field}
+                            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -134,18 +182,21 @@ const ContactForms = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Organization Capacity</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className="transition-all duration-200 focus:ring-2 focus:ring-primary/20">
                               <SelectValue placeholder="Select your capacity" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="startup">Startup</SelectItem>
-                            <SelectItem value="agency">Agency</SelectItem>
-                            <SelectItem value="individual">Individual</SelectItem>
-                            <SelectItem value="enterprise">Enterprise</SelectItem>
-                            <SelectItem value="nonprofit">Non-Profit</SelectItem>
+                            {capacityOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -160,7 +211,12 @@ const ContactForms = () => {
                       <FormItem>
                         <FormLabel>Business Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="contact@company.com" {...field} className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" />
+                          <Input
+                            type="email"
+                            placeholder="contact@company.com"
+                            {...field}
+                            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -170,8 +226,8 @@ const ContactForms = () => {
               </div>
 
               <div className="flex justify-center pt-4 animate-in fade-in zoom-in duration-700 delay-700">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   size="lg"
                   className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-[var(--shadow-button)] px-12 transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-glow"
                 >
