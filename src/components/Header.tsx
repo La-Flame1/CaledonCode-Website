@@ -36,6 +36,7 @@ const Header = () => {
           {links.map((link) => (
             <Link
               to={link.to}
+              key={link.to}
               className={`transition-colors hover:text-primary ${
                 location.pathname === link.to
                   ? "text-primary"

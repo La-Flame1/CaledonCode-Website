@@ -1,6 +1,6 @@
 import { TestimonialCarousel } from "@/components/tiers/TestimonialCarousel";
-
-// Inside your Tiers.tsx (replace the tiers array + mapping block)
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const tiers = [
   {
@@ -124,9 +124,10 @@ const Tiers = () => {
                 </div>
 
                 <div className="text-center">
-                  <button className="px-6 py-3 bg-[#3774B6] hover:bg-[#2f639e] text-white rounded-lg font-semibold transition-transform hover:scale-105">
+                  <Button className="font-semibold rounded-md shadow-md hover:shadow-lg duration-300 bg-primary hover:bg-primary/90 text-white">
                     Learn More
-                  </button>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </div>
               </div>
             ))}
