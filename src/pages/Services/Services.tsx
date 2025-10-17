@@ -1,5 +1,5 @@
 import { ArrowRight, BarChart, Layers, Rocket } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -112,11 +113,14 @@ const Services = () => {
 
             <motion.div variants={fadeInUp}>
               <Button
+                asChild
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-full px-8 h-12 shadow-lg hover:shadow-xl duration-300"
               >
-                Explore Our Work
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/tiers">
+                  Explore Our Work
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -174,12 +178,16 @@ const Services = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
+                asChild
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-full px-8 h-12 shadow-lg hover:shadow-xl duration-300"
               >
-                Contact Us
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
+
               <Button
                 size="lg"
                 variant="outline"
