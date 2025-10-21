@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Improved user engagement", "Streamlined workflows"],
     percentageIncrease: "45% increase in conversions",
-    avatar: "https://avatar.iran.liara.run/public/91", 
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Alice%20Johnson&radius=15&fontFamily=Helvetica", 
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     rating: 4,
     keyPoints: ["Enhanced analytics", "Better team collaboration"],
     percentageIncrease: "28% growth in monthly revenue",
-    avatar: "https://avatar.iran.liara.run/public/24",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Bob%20Smith&radius=15&fontFamily=Helvetica",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Custom branding success", "Seamless integration"],
     percentageIncrease: "60% boost in customer retention",
-    avatar: "https://avatar.iran.liara.run/public/13",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Carol%20Davis&radius=15&fontFamily=Helvetica",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Advanced SEO tools", "Priority support excellence"],
     percentageIncrease: "35% traffic surge",
-    avatar: "https://avatar.iran.liara.run/public/42",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=David%20Wilson&radius=15&fontFamily=Helvetica",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
     rating: 4,
     keyPoints: ["Responsive designs", "Quarterly workshops valuable"],
     percentageIncrease: "22% efficiency improvement",
-    avatar: "https://avatar.iran.liara.run/public/60",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Eva%20Martinez&radius=15&fontFamily=Helvetica",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Tailored solutions", "SSO setup easy"],
     percentageIncrease: "50% loyalty program uptake",
-    avatar: "https://avatar.iran.liara.run/public/38",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Frank%20Lee&radius=15&fontFamily=Helvetica",
   },
   {
     id: 7,
@@ -72,7 +72,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Edge delivery speed", "Analytics insights"],
     percentageIncrease: "40% sales acceleration",
-    avatar: "https://avatar.iran.liara.run/public/83",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Grace%20Kim&radius=15&fontFamily=Helvetica",
   },
   {
     id: 8,
@@ -81,7 +81,7 @@ const testimonials: Testimonial[] = [
     rating: 4,
     keyPoints: ["Custom domains flexible", "Support responsive"],
     percentageIncrease: "25% user acquisition",
-    avatar: "https://avatar.iran.liara.run/public/37",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Henry%20Patel&radius=15&fontFamily=Helvetica",
   },
   {
     id: 9,
@@ -90,16 +90,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     keyPoints: ["Workshops transformative", "Scalable features"],
     percentageIncrease: "55% ROI improvement",
-    avatar: "https://avatar.iran.liara.run/public/90",
-  },
-  {
-    id: 10,
-    clientName: "Jack Thompson",
-    company: "EliteStrategies",
-    rating: 5,
-    keyPoints: ["Full branding kit", "Advanced analytics"],
-    percentageIncrease: "38% engagement rise",
-    avatar: "https://avatar.iran.liara.run/public/30",
+    avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Ivy%20Chen&radius=15&fontFamily=Helvetica",
   },
 ];
 
@@ -183,7 +174,7 @@ export const TestimonialCarousel: React.FC = () => {
               <img
                 src={testimonial.avatar}
                 alt={testimonial.clientName}
-                className="w-28 h-28 rounded-full mx-auto mb-6 shadow-lg border-4 border-[#3774B6] object-cover"
+                className="w-28 h-28 rounded-full mx-auto mb-6 shadow-lg border-4  object-cover"
               />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {testimonial.clientName}

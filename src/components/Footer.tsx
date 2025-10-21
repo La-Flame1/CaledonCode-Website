@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                   className="hover:text-primary transition-colors duration-300 underline decoration-1 underline-offset-4 group-hover:no-underline"
                   title="Send an email"
                 >
-                  hello@caledoncode.com
+                  support@caledoncode.com
                 </a>
               </div>
               <div className="flex items-center group">
