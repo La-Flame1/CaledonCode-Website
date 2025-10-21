@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 interface Testimonial {
@@ -108,6 +107,21 @@ export const TestimonialCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [visibleCards, setVisibleCards] = useState(1);
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      if (window.innerWidth >= 1024) {
+        setVisibleCards(3);
+      } else {
+        setVisibleCards(1);
+      }
+    };
+
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, []);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -117,7 +131,7 @@ export const TestimonialCarousel: React.FC = () => {
       }, 3000);
     }
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, visibleCards]);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
@@ -140,6 +154,8 @@ export const TestimonialCarousel: React.FC = () => {
       </span>
     ));
 
+  const itemWidth = 100 / visibleCards;
+
   return (
     <div
       className="relative overflow-hidden rounded-lg"
@@ -147,16 +163,19 @@ export const TestimonialCarousel: React.FC = () => {
     >
       <div
         className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        style={{ 
+          transform: `translateX(-${currentIndex * itemWidth}%)` 
+        }}
       >
         {testimonials.map((testimonial, idx) => (
           <div
             key={testimonial.id}
-            className="min-w-full flex-shrink-0 p-4"
+            className={`flex-shrink-0 px-2 md:px-4 w-[${itemWidth}%]`}
+            style={{ width: `${itemWidth}%` }}
             onMouseEnter={() => handleMouseEnter(idx)}
           >
             <div
-              className={`bg-white rounded-2xl shadow-lg p-8 text-center max-w-md mx-auto transform transition-all duration-300 hover:scale-105 ${
+              className={`bg-white rounded-2xl shadow-lg p-8 text-center h-full w-full ${
                 hoveredIndex === idx ? "ring-2 ring-blue-200" : ""
               }`}
             >
@@ -176,7 +195,7 @@ export const TestimonialCarousel: React.FC = () => {
               <ul className="text-left mb-4 space-y-1">
                 {testimonial.keyPoints.map((point, keyIdx) => (
                   <li key={keyIdx} className="text-gray-700 flex items-center">
-                    <span className="w-1.5 h-1.5 bg-[#3774B6] rounded-full mr-2"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0 animate-pulse"></span>
                     {point}
                   </li>
                 ))}
@@ -205,7 +224,7 @@ export const TestimonialCarousel: React.FC = () => {
                 ? "Current testimonial"
                 : `Go to testimonial ${idx + 1}`
             }
-            className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
               idx === currentIndex
                 ? "bg-[#3774B6] shadow-md"
                 : "bg-gray-300 hover:bg-gray-400"
