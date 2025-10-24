@@ -119,7 +119,7 @@ export const TestimonialCarousel: React.FC = () => {
     if (!isPaused) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      }, 3000);
+      }, 7000);
     }
     return () => clearInterval(interval);
   }, [isPaused, visibleCards]);
